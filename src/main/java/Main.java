@@ -20,16 +20,16 @@ public class Main {
         construir pizzes amb diferents configuracions.
         */
 
-        PizzaBuilder pizzaBuilder1 = new PizzaMargarita(PizzaConstants.Size.FAMILY.name(), PizzaConstants.Dough.FILLEDWITHCHEESE.name());
+        PizzaBuilder pizzaBuilder1 = new PizzaMargarita(PizzaConstants.Size.FAMILY, PizzaConstants.Dough.FILLEDWITHCHEESE);
         MestrePizzer mestrePizzer = new MestrePizzer(pizzaBuilder1);
 
-        PizzaBuilder pizzaBuilder2 = new PizzaMargarita(PizzaConstants.Size.MEDIUM.name(), PizzaConstants.Dough.THICK.name());
+        PizzaBuilder pizzaBuilder2 = new PizzaMargarita(PizzaConstants.Size.MEDIUM, PizzaConstants.Dough.THICK);
         mestrePizzer.addPizza(pizzaBuilder2);
 
-        PizzaBuilder pizzaBuilder3 = new PizzaCarbonara(PizzaConstants.Size.FAMILY.name(), PizzaConstants.Dough.THIN.name());
+        PizzaBuilder pizzaBuilder3 = new PizzaCarbonara(PizzaConstants.Size.FAMILY, PizzaConstants.Dough.THIN);
         mestrePizzer.addPizza(pizzaBuilder3);
 
-        // List<PizzaBuilder> getPizzaBuilderList()
+        System.out.println("Today order list:");
         for(PizzaBuilder pizzaBuilder : mestrePizzer.getPizzaBuilderList()){
             pizzaBuilder.getPizzaDescription();
         }

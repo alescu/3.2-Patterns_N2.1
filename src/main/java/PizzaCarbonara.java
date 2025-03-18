@@ -2,18 +2,18 @@ public class PizzaCarbonara implements PizzaBuilder{
 
     Pizza pizza;
 
-    public PizzaCarbonara(String size, String dough) {
+    public PizzaCarbonara(PizzaConstants.Size size, PizzaConstants.Dough dough) {
         this.pizza = new Pizza("Carbonara", size, dough);
     }
 
     @Override
-    public void setSize(String _size) {
+    public void setSize(PizzaConstants.Size _size) {
         this.pizza.size=_size;
     }
 
     @Override
-    public void setDough(String _dought) {
-        this.pizza.dough=_dought;
+    public void setDough(PizzaConstants.Dough _dough) {
+        this.pizza.dough=_dough;
     }
 
     @Override
@@ -28,6 +28,6 @@ public class PizzaCarbonara implements PizzaBuilder{
 
     @Override
     public void getPizzaDescription(){
-        System.out.println(this.pizza.name + " > size:" + pizza.size + ", dough:  " + pizza.dough);
+        System.out.println(this.pizza.name + " > size:" + this.pizza.size.description + ", dough:  " + this.pizza.dough.description);
     }
 }

@@ -1,8 +1,8 @@
 import java.util.List;
 
 public interface PizzaBuilder {
-    void setSize(String size);
-    void setDough(String dought);
+    void setSize(PizzaConstants.Size size);
+    void setDough(PizzaConstants.Dough dough);
     void setToppings ();
     void getPizzaDescription ();
 }
