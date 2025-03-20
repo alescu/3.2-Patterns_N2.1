@@ -4,7 +4,8 @@ public class Main {
     public static void main(String[] args){
         /*
         Builder
-        Desenvolupa un sistema de gestió de comandes de pizzes utilitzant el patró de disseny Builder en Java. El sistema ha de permetre la creació de diferents tipus de pizzes amb configuracions de mida, massa i ingredients diferents.
+        Desenvolupa un sistema de gestió de comandes de pizzes utilitzant el patró de disseny Builder en Java.
+        El sistema ha de permetre la creació de diferents tipus de pizzes amb configuracions de mida, massa i ingredients diferents.
 
         Defineix una classe Pizza amb els següents atributs:
             size (mida)
