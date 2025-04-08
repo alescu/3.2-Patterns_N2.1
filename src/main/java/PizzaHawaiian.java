@@ -1,14 +1,14 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class PizzaCarbonara implements PizzaBuilderInterface {
+public class PizzaHawaiian implements PizzaBuilderInterface {
 
-    final Constants.PizzaType type = Constants.PizzaType.CARBONARA;
+    final Constants.PizzaType type = Constants.PizzaType.HAWAIIAN;
     Constants.Size size;
     Constants.Dough dough;
     List<Constants.Toppings> toppings = new ArrayList<Constants.Toppings>();
 
-    public PizzaCarbonara(PizzaBuilderInterface pB) {
+    public PizzaHawaiian(PizzaBuilderInterface pB) {
         this.size = pB.getSize();
         this.dough = pB.getDough();
         this.toppings = getToppings();
@@ -31,12 +31,12 @@ public class PizzaCarbonara implements PizzaBuilderInterface {
 
     @Override
     public Constants.Size getSize() {
-        return this.getSize();
+        return this.size;
     }
 
     @Override
     public Constants.Dough getDough() {
-        return this.getDough();
+        return this.dough;
     }
 
     public void setToppings(List<Constants.Toppings> toppings) {
@@ -49,17 +49,15 @@ public class PizzaCarbonara implements PizzaBuilderInterface {
     }
 
     public List<Constants.Toppings> getToppings() {
-        toppings.add(Constants.Toppings.BACON);
-        toppings.add(Constants.Toppings.EGG);
-        toppings.add(Constants.Toppings.MOZZARELLA_CHEESE);
-        toppings.add(Constants.Toppings.PARMESAN_CHEESE);
-        toppings.add(Constants.Toppings.BLACK_PEPPER);
-        toppings.add(Constants.Toppings.OLIVE_OIL);
+        toppings.add(Constants.Toppings.PIZZA_SAUCE);
+        toppings.add(Constants.Toppings.CHEESE);
+        toppings.add(Constants.Toppings.COOKED_HAM);
+        toppings.add(Constants.Toppings.PINEAPPLE);
         return toppings;
     }
 
     public Pizza getPizza() {
-        Pizza pizza = new Pizza(this.type, this.size, this.dough, this.toppings);
+        Pizza pizza = new Pizza( this.type, this.size, this.dough, this.toppings);
         return pizza;
     }
 

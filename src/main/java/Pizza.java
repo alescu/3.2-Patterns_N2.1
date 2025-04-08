@@ -2,15 +2,56 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Pizza {
-    String name;
-    PizzaConstants.Size size;
-    PizzaConstants.Dough dough;
-    List<String> toppings = new ArrayList<>();
+    Constants.PizzaType type = Constants.PizzaType.GENERIC;
+    Constants.Size size;
+    Constants.Dough dough;
+    List<Constants.Toppings> toppings = new ArrayList<Constants.Toppings>();
 
-    public Pizza(String name, PizzaConstants.Size size, PizzaConstants.Dough dough) {
-        this.name = name;
+    public Pizza(PizzaBuilderInterface pizzaBuilder) {
+        this.size = pizzaBuilder.getSize();
+        this.dough = pizzaBuilder.getDough();
+    }
+
+    public Pizza(Constants.Size size, Constants.Dough dough) {
         this.size = size;
         this.dough = dough;
+    }
+
+    public Pizza(Constants.PizzaType type, Constants.Size size, Constants.Dough dough, List<Constants.Toppings> toppings) {
+        this.type = type;
+        this.size = size;
+        this.dough = dough;
+        this.toppings = toppings;
+    }
+
+    public List<Constants.Toppings> getToppings() {
+        return toppings;
+    }
+
+    public void setToppings(List<Constants.Toppings> toppings) {
+        this.toppings = toppings;
+    }
+
+    public Constants.Size getSize() {
+        return size;
+    }
+
+    public void setSize(Constants.Size size) {
+        this.size = size;
+    }
+
+    public Constants.Dough getDough() {
+        return dough;
+    }
+
+    public void setDough(Constants.Dough dough) {
+        this.dough = dough;
+    }
+
+    public void getPizzaDescription() {
+        System.out.println("");
+        System.out.println(this.type + " > size:" + this.size.description + ", dough:  " + this.dough.description);
+        System.out.println("            toppings:  " + toppings);
     }
 
 }

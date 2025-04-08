@@ -1,7 +1,9 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
-    public static void main(String[] args){
+
+    public static void main(String[] args) {
         /*
         Builder
         Desenvolupa un sistema de gestió de comandes de pizzes utilitzant el patró de disseny Builder en Java.
@@ -20,19 +22,21 @@ public class Main {
         En el programa principal (Main), crea instàncies de PizzaBuilder i de MestrePizzer, i utilitza'ls per
         construir pizzes amb diferents configuracions.
         */
+        List<Pizza> pizzaOrderList = new ArrayList<>();
+        MestrePizzer mestrePizzer = new MestrePizzer();
 
-        PizzaBuilder pizzaBuilder1 = new PizzaMargarita(PizzaConstants.Size.FAMILY, PizzaConstants.Dough.FILLEDWITHCHEESE);
-        MestrePizzer mestrePizzer = new MestrePizzer(pizzaBuilder1);
+        PizzaBuilderInterface pizzaBuilder1 = new PizzaBuilder(Constants.Size.FAMILY, Constants.Dough.FILLEDWITHCHEESE);
+        pizzaOrderList.add(mestrePizzer.getPizza(pizzaBuilder1, Constants.PizzaType.MARGARITA));
 
-        PizzaBuilder pizzaBuilder2 = new PizzaMargarita(PizzaConstants.Size.MEDIUM, PizzaConstants.Dough.THICK);
-        mestrePizzer.addPizza(pizzaBuilder2);
+        PizzaBuilderInterface pizzaBuilder2 = new PizzaBuilder(Constants.Size.MEDIUM, Constants.Dough.THICK);
+        pizzaOrderList.add(mestrePizzer.getPizza(pizzaBuilder2, Constants.PizzaType.CARBONARA));
 
-        PizzaBuilder pizzaBuilder3 = new PizzaCarbonara(PizzaConstants.Size.FAMILY, PizzaConstants.Dough.THIN);
-        mestrePizzer.addPizza(pizzaBuilder3);
+        PizzaBuilderInterface pizzaBuilder3 = new PizzaBuilder(Constants.Size.LITTLE, Constants.Dough.FILLEDWITHCHEESE);
+        pizzaOrderList.add(mestrePizzer.getPizza(pizzaBuilder3, Constants.PizzaType.HAWAIIAN));
 
-        System.out.println("Today order list:");
-        for(PizzaBuilder pizzaBuilder : mestrePizzer.getPizzaBuilderList()){
-            pizzaBuilder.getPizzaDescription();
+        System.out.println("\nToday order list:\n");
+        for (Pizza pizza : pizzaOrderList) {
+            pizza.getPizzaDescription();
         }
 
     }

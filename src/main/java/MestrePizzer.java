@@ -1,18 +1,20 @@
-import java.util.ArrayList;
-import java.util.List;
-
 public class MestrePizzer {
-    List<PizzaBuilder> pizzaBuilderList = new ArrayList<PizzaBuilder>();
 
-    public MestrePizzer(PizzaBuilder pizzaBuilder) {
-        pizzaBuilderList.add(pizzaBuilder);
+    public Pizza getPizza(PizzaBuilderInterface pizzaBuilder){
+        return getPizza( pizzaBuilder, null);
     }
 
-    public void addPizza(PizzaBuilder pizzaBuilder) {
-        pizzaBuilderList.add(pizzaBuilder);
+    public Pizza getPizza(PizzaBuilderInterface pizzaBuilder, Constants.PizzaType pizzaType ) {
+        switch(pizzaType){
+            case Constants.PizzaType.CARBONARA:
+                return (new PizzaCarbonara(pizzaBuilder)).getPizza();
+            case Constants.PizzaType.MARGARITA:
+                return (new PizzaMargarita(pizzaBuilder)).getPizza();
+            case Constants.PizzaType.HAWAIIAN:
+                return (new PizzaHawaiian(pizzaBuilder)).getPizza();
+            default:
+                return new Pizza(pizzaBuilder);
+        }
     }
 
-    public List<PizzaBuilder> getPizzaBuilderList() {
-        return pizzaBuilderList;
-    }
 }

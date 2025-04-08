@@ -7,10 +7,10 @@ Defineix una classe Pizza amb els següents atributs:
 size (mida)
 dough (tipus de massa)
 toppings (ingredients)
-Crea una interfície PizzaBuilder amb els mètodes necessaris per configurar la mida, la massa i els ingredients d'una pizza.
-Implementa una o més classes que actuïn com a constructors concrets (PizzaBuilder) per a diferents tipus de pizzes. Per exemple, podries tenir un constructor per a la pizza hawaiana, un altre per a la pizza vegetariana, etc.
-Desenvolupa una classe MestrePizzer que rebi un PizzaBuilder i que permeti construir pizzes de manera específica.
-En el programa principal (Main), crea instàncies de PizzaBuilder i de MestrePizzer, i utilitza'ls per construir pizzes amb diferents configuracions.
+Crea una interfície PizzaBuilderInterface amb els mètodes necessaris per configurar la mida, la massa i els ingredients d'una pizza.
+Implementa una o més classes que actuïn com a constructors concrets (PizzaBuilderInterface) per a diferents tipus de pizzes. Per exemple, podries tenir un constructor per a la pizza hawaiana, un altre per a la pizza vegetariana, etc.
+Desenvolupa una classe MestrePizzer que rebi un PizzaBuilderInterface i que permeti construir pizzes de manera específica.
+En el programa principal (Main), crea instàncies de PizzaBuilderInterface i de MestrePizzer, i utilitza'ls per construir pizzes amb diferents configuracions.
 
 Tecnologies Utilitzades:
 	Java

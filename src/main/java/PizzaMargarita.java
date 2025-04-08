@@ -1,33 +1,64 @@
+import java.util.ArrayList;
 import java.util.List;
 
-public class PizzaMargarita implements PizzaBuilder{
+public class PizzaMargarita implements PizzaBuilderInterface {
 
-    Pizza pizza;
+    final Constants.PizzaType type = Constants.PizzaType.MARGARITA;
+    Constants.Size size;
+    Constants.Dough dough;
+    List<Constants.Toppings> toppings = new ArrayList<Constants.Toppings>();
 
-    public PizzaMargarita(PizzaConstants.Size size, PizzaConstants.Dough dough) {
-        this.pizza = new Pizza("Margarita", size, dough);
+    public PizzaMargarita(PizzaBuilderInterface pB) {
+        this.size = pB.getSize();
+        this.dough = pB.getDough();
+        this.toppings = getToppings();
     }
 
     @Override
-    public void setSize(PizzaConstants.Size _size) {
-        this.pizza.size=_size;
+    public void setSize(Constants.Size size) {
+        this.size = size;
     }
 
     @Override
-    public void setDough(PizzaConstants.Dough _dough) {
-        this.pizza.dough=_dough;
+    public void setDough(Constants.Dough dough) {
+        this.dough = dough;
     }
 
     @Override
-    public void setToppings() {
-        this.pizza.toppings.add(PizzaConstants.Toppings.MOZZARELLA_CHEESE.toString());
-        this.pizza.toppings.add(PizzaConstants.Toppings.FRESH_BASIL_LEAVES.toString());
-        this.pizza.toppings.add(PizzaConstants.Toppings.OLIVE_OIL.toString());
+    public Constants.PizzaType getPizzaType() {
+        return this.type;
     }
 
     @Override
-    public void getPizzaDescription(){
-        System.out.println(this.pizza.name + " > size:" + this.pizza.size.description + ", dough:  " + this.pizza.dough.description);
+    public Constants.Size getSize() {
+        return this.size;
+    }
+
+    @Override
+    public Constants.Dough getDough() {
+        return this.dough;
+    }
+
+    public void setToppings(List<Constants.Toppings> toppings) {
+        this.toppings = toppings;
+    }
+
+    @Override
+    public void addToppings(Constants.Toppings pizzaTopping) {
+        this.toppings.add(pizzaTopping);
+    }
+
+
+    public List<Constants.Toppings> getToppings() {
+        toppings.add(Constants.Toppings.MOZZARELLA_CHEESE);
+        toppings.add(Constants.Toppings.FRESH_BASIL_LEAVES);
+        toppings.add(Constants.Toppings.OLIVE_OIL);
+        return toppings;
+    }
+
+    public Pizza getPizza() {
+        Pizza pizza = new Pizza( this.type, this.size, this.dough, this.toppings);
+        return pizza;
     }
 
 }
