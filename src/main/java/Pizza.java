@@ -2,14 +2,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Pizza {
-    Constants.PizzaType type = Constants.PizzaType.GENERIC;
+    Constants.PizzaType type;
     Constants.Size size;
     Constants.Dough dough;
     List<Constants.Toppings> toppings = new ArrayList<Constants.Toppings>();
 
-    public Pizza(PizzaBuilderInterface pizzaBuilder) {
-        this.size = pizzaBuilder.getSize();
-        this.dough = pizzaBuilder.getDough();
+    public Pizza() {
+
     }
 
     public Pizza(Constants.Size size, Constants.Dough dough) {
@@ -22,6 +21,14 @@ public class Pizza {
         this.size = size;
         this.dough = dough;
         this.toppings = toppings;
+    }
+
+    public Constants.PizzaType getType() {
+        return type;
+    }
+
+    public void setType(Constants.PizzaType type) {
+        this.type = type;
     }
 
     public List<Constants.Toppings> getToppings() {

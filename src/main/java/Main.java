@@ -25,16 +25,19 @@ public class Main {
         List<Pizza> pizzaOrderList = new ArrayList<>();
         MestrePizzer mestrePizzer = new MestrePizzer();
 
-        PizzaBuilderInterface pizzaBuilder1 = new PizzaBuilder(Constants.Size.FAMILY, Constants.Dough.FILLEDWITHCHEESE);
-        pizzaOrderList.add(mestrePizzer.getPizza(pizzaBuilder1, Constants.PizzaType.MARGARITA));
+        PizzaCarbonara pizzaCarbonara = new PizzaCarbonara();
+        mestrePizzer.getPizzaCarbonara(pizzaCarbonara);
+        pizzaOrderList.add(pizzaCarbonara.getPizza());
 
-        PizzaBuilderInterface pizzaBuilder2 = new PizzaBuilder(Constants.Size.MEDIUM, Constants.Dough.THICK);
-        pizzaOrderList.add(mestrePizzer.getPizza(pizzaBuilder2, Constants.PizzaType.CARBONARA));
+        PizzaHawaiian pizzaHawaian = new PizzaHawaiian();
+        mestrePizzer.getPizzaHawaian(pizzaHawaian);
+        pizzaOrderList.add(pizzaHawaian.getPizza());
 
-        PizzaBuilderInterface pizzaBuilder3 = new PizzaBuilder(Constants.Size.LITTLE, Constants.Dough.FILLEDWITHCHEESE);
-        pizzaOrderList.add(mestrePizzer.getPizza(pizzaBuilder3, Constants.PizzaType.HAWAIIAN));
+        PizzaMargarita pizzaMargarita = new PizzaMargarita();
+        mestrePizzer.getPizzaHawaian(pizzaMargarita);
+        pizzaOrderList.add(pizzaMargarita.getPizza());
 
-        System.out.println("\nToday order list:\n");
+        System.out.println("\nToday order list:");
         for (Pizza pizza : pizzaOrderList) {
             pizza.getPizzaDescription();
         }
