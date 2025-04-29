@@ -3,37 +3,30 @@ import java.util.List;
 
 public class PizzaBuilder implements PizzaBuilderInterface {
 
-    Constants.PizzaType type;
     Constants.Size size;
     Constants.Dough dough;
     List<Constants.Toppings> toppings = new ArrayList<Constants.Toppings>();
 
     @Override
-    public void setPizzaType(Constants.PizzaType pizzaType) {
-        this.type = pizzaType;
-    }
-
-    @Override
-    public void setSize(Constants.Size size) {
+    public PizzaBuilderInterface setSize(Constants.Size size) {
         this.size = size;
+        return this;
     }
 
     @Override
-    public void setDough(Constants.Dough dough) {
+    public PizzaBuilderInterface setDough(Constants.Dough dough) {
         this.dough = dough;
+        return this;
     }
 
     @Override
-    public void setToppings(List<Constants.Toppings> toppings) {
+    public PizzaBuilderInterface setToppings(List<Constants.Toppings> toppings) {
         this.toppings = toppings;
+        return this;
     }
 
     public List<Constants.Toppings> getToppings() {
         return toppings;
-    }
-
-    public Constants.PizzaType getPizzaType() {
-        return this.type;
     }
 
     public Constants.Size getSize() {
@@ -45,8 +38,12 @@ public class PizzaBuilder implements PizzaBuilderInterface {
     }
 
     public Pizza getPizza() {
-        Pizza pizza = new Pizza( this.type, this.size, this.dough, getToppings());
+        Pizza pizza = new Pizza(getPizzatype(), this.size, this.dough, getToppings());
         return pizza;
+    }
+
+    public String getPizzatype() {
+        return "";
     }
 
 }

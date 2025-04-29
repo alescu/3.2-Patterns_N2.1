@@ -1,7 +1,8 @@
-import java.util.ArrayList;
 import java.util.List;
 
-public class PizzaCarbonara extends PizzaBuilder {
+public class PizzaCarbonaraBuilder extends PizzaBuilder {
+
+    String pizzatype = "Carbonara";
 
     public List<Constants.Toppings> getToppings() {
         toppings.add(Constants.Toppings.BACON);
@@ -11,6 +12,11 @@ public class PizzaCarbonara extends PizzaBuilder {
         toppings.add(Constants.Toppings.BLACK_PEPPER);
         toppings.add(Constants.Toppings.OLIVE_OIL);
         return toppings;
+    }
+
+    @Override
+    public String getPizzatype() {
+        return pizzatype;
     }
 
 }

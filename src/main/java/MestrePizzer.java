@@ -1,21 +1,28 @@
 public class MestrePizzer {
 
-    public void getPizzaCarbonara(PizzaBuilderInterface pizzaBuilder) {
-        pizzaBuilder.setPizzaType(Constants.PizzaType.CARBONARA);
-        pizzaBuilder.setSize(Constants.Size.MEDIUM);
-        pizzaBuilder.setDough(Constants.Dough.THIN);
+    private PizzaBuilderInterface pizzaBuilder;
+
+    public void setPizzaBuilder(PizzaBuilderInterface pb) {
+        this.pizzaBuilder = pb;
     }
 
-    public void getPizzaHawaian(PizzaBuilderInterface pizzaBuilder) {
-        pizzaBuilder.setPizzaType(Constants.PizzaType.HAWAIIAN);
-        pizzaBuilder.setSize(Constants.Size.MEDIUM);
-        pizzaBuilder.setDough(Constants.Dough.THIN);
+    public Pizza buildPizza(){
+        return this.pizzaBuilder.getPizza();
     }
 
-    public void getPizzaMargarita(PizzaBuilderInterface pizzaBuilder) {
-        pizzaBuilder.setPizzaType(Constants.PizzaType.MARGARITA);
-        pizzaBuilder.setSize(Constants.Size.MEDIUM);
-        pizzaBuilder.setDough(Constants.Dough.THIN);
+    public PizzaBuilderInterface getPizzaCarbonara(Constants.Size size, Constants.Dough dough) {
+        pizzaBuilder.setSize(size).setDough(dough);
+        return pizzaBuilder;
+    }
+
+    public PizzaBuilderInterface getPizzaHawaian(Constants.Size size, Constants.Dough dough) {
+        pizzaBuilder.setSize(size).setDough(dough);
+        return pizzaBuilder;
+    }
+
+    public PizzaBuilderInterface getPizzaMargarita(Constants.Size size, Constants.Dough dough) {
+        pizzaBuilder.setSize(size).setDough(dough);
+        return pizzaBuilder;
     }
 
 }

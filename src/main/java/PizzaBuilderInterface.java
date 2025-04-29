@@ -2,13 +2,11 @@ import java.util.List;
 
 public interface PizzaBuilderInterface {
 
-    void setPizzaType(Constants.PizzaType pizzaType);
+    PizzaBuilderInterface setSize(Constants.Size size);
 
-    void setSize(Constants.Size size);
+    PizzaBuilderInterface setDough(Constants.Dough dough);
 
-    void setDough(Constants.Dough dough);
-
-    void setToppings(List<Constants.Toppings> toppings);
+    PizzaBuilderInterface setToppings(List<Constants.Toppings> toppings);
 
     Pizza getPizza();
 

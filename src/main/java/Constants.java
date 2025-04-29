@@ -23,8 +23,4 @@ public class Constants {
         PIZZA_SAUCE, CHEESE, COOKED_HAM, PINEAPPLE;
     }
 
-    public enum PizzaType {
-        CARBONARA, HAWAIIAN, MARGARITA, GENERIC;
-    }
-
 }

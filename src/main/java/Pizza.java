@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Pizza {
-    Constants.PizzaType type;
+    String pizzatype = "";
     Constants.Size size;
     Constants.Dough dough;
     List<Constants.Toppings> toppings = new ArrayList<Constants.Toppings>();
@@ -16,19 +16,11 @@ public class Pizza {
         this.dough = dough;
     }
 
-    public Pizza(Constants.PizzaType type, Constants.Size size, Constants.Dough dough, List<Constants.Toppings> toppings) {
-        this.type = type;
+    public Pizza(String pizzatype, Constants.Size size, Constants.Dough dough, List<Constants.Toppings> toppings) {
+        this.pizzatype = pizzatype;
         this.size = size;
         this.dough = dough;
         this.toppings = toppings;
-    }
-
-    public Constants.PizzaType getType() {
-        return type;
-    }
-
-    public void setType(Constants.PizzaType type) {
-        this.type = type;
     }
 
     public List<Constants.Toppings> getToppings() {
@@ -56,8 +48,8 @@ public class Pizza {
     }
 
     public void getPizzaDescription() {
-        System.out.println("");
-        System.out.println(this.type + " > size:" + this.size.description + ", dough:  " + this.dough.description);
+        System.out.println("\n");
+        System.out.println(this.pizzatype+" > size:" + this.size.description + ", dough:  " + this.dough.description);
         System.out.println("            toppings:  " + toppings);
     }
 
