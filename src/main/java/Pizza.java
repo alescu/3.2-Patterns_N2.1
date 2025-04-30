@@ -49,7 +49,8 @@ public class Pizza {
 
     public void getPizzaDescription() {
         System.out.println("\n");
-        System.out.println(this.pizzatype+" > size:" + this.size.description + ", dough:  " + this.dough.description);
+        System.out.println(this.pizzatype);
+        System.out.println("            size:" + this.size.description + ", dough:  " + this.dough.description);
         System.out.println("            toppings:  " + toppings);
     }
 

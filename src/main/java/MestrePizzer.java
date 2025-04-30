@@ -1,28 +1,27 @@
+import java.util.List;
+
 public class MestrePizzer {
 
-    private PizzaBuilderInterface pizzaBuilder;
-
-    public void setPizzaBuilder(PizzaBuilderInterface pb) {
-        this.pizzaBuilder = pb;
+    public Pizza getPizzaCarbonara(Constants.Size size, Constants.Dough dough) {
+        PizzaBuilderInterface pizzaBuilder = new PizzaCarbonaraBuilder();
+        return pizzaBuilder.setSize(size).setDough(dough).build();
     }
 
-    public Pizza buildPizza(){
-        return this.pizzaBuilder.getPizza();
+    public Pizza getPizzaHawaian(Constants.Size size, Constants.Dough dough) {
+        PizzaBuilderInterface pizzaBuilder = new PizzaHawaianBuilder();
+        return pizzaBuilder.setSize(size).setDough(dough).build();
     }
 
-    public PizzaBuilderInterface getPizzaCarbonara(Constants.Size size, Constants.Dough dough) {
-        pizzaBuilder.setSize(size).setDough(dough);
-        return pizzaBuilder;
+    public Pizza getPizzaMargarita(Constants.Size size, Constants.Dough dough) {
+        PizzaBuilderInterface pizzaBuilder = new PizzaMargaritaBuilder();
+        return pizzaBuilder.setSize(size).setDough(dough).build();
     }
 
-    public PizzaBuilderInterface getPizzaHawaian(Constants.Size size, Constants.Dough dough) {
-        pizzaBuilder.setSize(size).setDough(dough);
-        return pizzaBuilder;
-    }
-
-    public PizzaBuilderInterface getPizzaMargarita(Constants.Size size, Constants.Dough dough) {
-        pizzaBuilder.setSize(size).setDough(dough);
-        return pizzaBuilder;
+    public Pizza getPizzaGeneric(String name, Constants.Size size, Constants.Dough dough,
+                                 List<Constants.Toppings> toppingsList) {
+        PizzaBuilderInterface pizzaBuilder = new PizzaBuilder();
+        return pizzaBuilder.setPizzaType(name).setSize(size)
+                .setDough(dough).setToppings(toppingsList).build();
     }
 
 }
