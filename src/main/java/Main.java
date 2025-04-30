@@ -8,13 +8,13 @@ public class Main {
         List<Pizza> pizzaOrderList = new ArrayList<>();
         MestrePizzer mestrePizzer = new MestrePizzer();
 
-        Pizza pizza = mestrePizzer.getPizzaCarbonara(Constants.Size.LITTLE, Constants.Dough.THIN);
+        Pizza pizza = mestrePizzer.createCarbonaraPizza(Constants.Size.LITTLE, Constants.Dough.THIN);
         pizzaOrderList.add(pizza);
 
-        pizza = mestrePizzer.getPizzaMargarita(Constants.Size.FAMILY, Constants.Dough.THICK);
+        pizza = mestrePizzer.createMargaritaPizza(Constants.Size.FAMILY, Constants.Dough.THICK);
         pizzaOrderList.add(pizza);
 
-        pizza = mestrePizzer.getPizzaHawaian(Constants.Size.MEDIUM, Constants.Dough.THIN);
+        pizza = mestrePizzer.createHawaiianPizza(Constants.Size.MEDIUM, Constants.Dough.THIN);
         pizzaOrderList.add(pizza);
 
         List<Constants.Toppings> toppingsMixta = new ArrayList<Constants.Toppings>();
@@ -26,13 +26,13 @@ public class Main {
         toppingsMixta.add(Constants.Toppings.BLACK_PEPPER);
         toppingsMixta.add(Constants.Toppings.OLIVE_OIL);
 
-        pizza = mestrePizzer.getPizzaGeneric("Mixta Margarita / carbonara", Constants.Size.FAMILY, Constants.Dough.THIN, toppingsMixta);
+        pizza = mestrePizzer.createGenericPizzaPizza("Mixta Margarita / carbonara", Constants.Size.FAMILY, Constants.Dough.THIN, toppingsMixta);
         pizzaOrderList.add(pizza);
 
         System.out.println("\nToday order list:");
         for (Pizza pizzaItem : pizzaOrderList) {
             pizzaItem.getPizzaDescription();
         }
-
+        System.out.println("\n\n");
     }
 }
